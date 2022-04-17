@@ -1,0 +1,1 @@
+Can parse xlsx file, find images in local network and merge images.
