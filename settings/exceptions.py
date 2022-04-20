@@ -20,6 +20,8 @@ class AddException:
         self.combobox.pack()
         self.frame = ttk.Frame(self.app)
 
+        self.btn_save = Button(self.app, text="Добавить исключение")
+
         """self.btn_ok = Button(self.app, text="Ok", width=20, command=self.apply_exception)
         self.btn_ok.pack(pady=20)"""
 
@@ -31,6 +33,11 @@ class AddException:
         if self.frame:
             self.frame.destroy()
 
+        if self.btn_save:
+            self.btn_save.destroy()
+
+        self.btn_save = Button(self.app, text="Добавить исключение", command=self.apply_exception)
+
         self.frame = ttk.Frame(self.app)
         if self.combobox.get() != "":
             for i in range(int(self.combobox.get())):
@@ -39,15 +46,10 @@ class AddException:
                 cb = ttk.Combobox(self.frame, state="readonly", value=[1, 2, 3])
                 cb.grid(row=1, column=i)
         self.frame.pack()
+        self.btn_save.pack()
 
-        """label_width = Label(self.app, text="Введите ширину для исключения:")
-        label_width.pack(pady=10)
 
-        width_entry = Entry(self.app)
-        width_entry.pack()
 
-        btn_save = Button(self.app, text="Добавить исключение")
-        btn_save.pack(pady=10)"""
 
 
     def apply_exception(self):
