@@ -37,7 +37,7 @@ class MainWindow:
         setting_menu.add_separator()
         setting_menu.add_command(label="Задать '%' дополнительного метража", state="disabled")
         setting_menu.add_separator()
-        setting_menu.add_command(label="Добавить исключение", command=add_exception.open_window)
+        setting_menu.add_command(label="Добавить исключение", command=add_exception.open_window, state="disabled")
 
         main_menu.add_cascade(label="Настройки", menu=setting_menu)
 
