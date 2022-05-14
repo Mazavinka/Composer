@@ -91,12 +91,6 @@ class ExcelProcessing:
         self.sheet["H" + str(self.row_in_file)].value = fifth_color
         self.sheet["I" + str(self.row_in_file)].value = sixth_color
 
-        """self.second_color += float(second_color)
-        self.third_color += float(third_color)
-        self.fourth_color += float(fourth_color)
-        self.fifth_color += float(fifth_color)
-        self.sixth_color += float(sixth_color)"""
-
         seventh_color = ""
         eighth_color = ""
         ninth_color = ""
@@ -114,12 +108,6 @@ class ExcelProcessing:
             self.sheet["L" + str(self.row_in_file)].value = ninth_color
             self.sheet["M" + str(self.row_in_file)].value = tenth_color
             self.sheet["N" + str(self.row_in_file)].value = eleventh_color
-
-            """self.seventh_color += float(seventh_color)
-            self.eighth_color += float(eighth_color)
-            self.ninth_color += float(ninth_color)
-            self.tenth_color += float(tenth_color)
-            self.eleventh_color += float(eleventh_color)"""
 
         self.row_in_file += 1
 
@@ -173,51 +161,6 @@ class ExcelProcessing:
             self.eleventh_color = "{0:.2f}".format(self.composition_length * float(eleventh_color) * 0.08)
             self.sum_eleventh_colors += float(self.eleventh_color)
             self.sheet["N" + str(self.row_in_file)].value = self.sum_eleventh_colors
-
-
-        """self.sheet["E" + str(self.row_in_file)].value = self.second_color
-        self.sheet["F" + str(self.row_in_file)].value = self.third_color
-        self.sheet["G" + str(self.row_in_file)].value = self.fourth_color
-        self.sheet["H" + str(self.row_in_file)].value = self.fifth_color
-        self.sheet["I" + str(self.row_in_file)].value = self.sixth_color
-
-        if colors_count > 5:
-            self.sheet["J" + str(self.row_in_file)].value = self.seventh_color
-            self.sheet["K" + str(self.row_in_file)].value = self.eighth_color
-            self.sheet["L" + str(self.row_in_file)].value = self.ninth_color
-            self.sheet["M" + str(self.row_in_file)].value = self.tenth_color
-            self.sheet["N" + str(self.row_in_file)].value = self.eleventh_color"""
-
-        """# Среднее арифметическое по всем длинам для химиков
-        avg = float(sum(self.all_images_length) / len(self.all_images_length))
-        self.sheet["D" + str(self.row_in_file)].value = "{0:.2f}".format(avg)"""
-
-        """# Рассчет по формуле для химиков (сколько красок варить)
-        self.row_in_file += 1
-        how_much_second_color = "{0:.2f}".format(((avg * 4) / 50) * self.second_color)
-        how_much_third_color = "{0:.2f}".format(((avg * 4) / 50) * self.third_color)
-        how_much_fourth_color = "{0:.2f}".format(((avg * 4) / 50) * self.fourth_color)
-        how_much_fifth_color = "{0:.2f}".format(((avg * 4) / 50) * self.fifth_color)
-        how_much_sixth_color = "{0:.2f}".format(((avg * 4) / 50) * self.sixth_color)
-        self.sheet["E" + str(self.row_in_file)].value = how_much_second_color
-        self.sheet["F" + str(self.row_in_file)].value = how_much_third_color
-        self.sheet["G" + str(self.row_in_file)].value = how_much_fourth_color
-        self.sheet["H" + str(self.row_in_file)].value = how_much_fifth_color
-        self.sheet["I" + str(self.row_in_file)].value = how_much_sixth_color
-
-        if colors_count > 5:
-            how_much_seventh_color = "{0:.2f}".format(((avg * 4) / 50) * self.seventh_color)
-            how_much_eighth_color = "{0:.2f}".format(((avg * 4) / 50) * self.eighth_color)
-            how_much_ninth_color = "{0:.2f}".format(((avg * 4) / 50) * self.ninth_color)
-            how_much_tenth_color = "{0:.2f}".format(((avg * 4) / 50) * self.tenth_color)
-            how_much_eleventh_color = "{0:.2f}".format(((avg * 4) / 50) * self.eleventh_color)
-            self.sheet["J" + str(self.row_in_file)].value = how_much_seventh_color
-            self.sheet["K" + str(self.row_in_file)].value = how_much_eighth_color
-            self.sheet["L" + str(self.row_in_file)].value = how_much_ninth_color
-            self.sheet["M" + str(self.row_in_file)].value = how_much_tenth_color
-            self.sheet["N" + str(self.row_in_file)].value = how_much_eleventh_color
-
-        self.row_in_file -= 1"""
 
     def save_template(self, path):
         self.append_palette_number()
