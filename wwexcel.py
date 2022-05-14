@@ -1,6 +1,5 @@
 ﻿from config import config as config
 from openpyxl import load_workbook
-from openpyxl.styles import Font
 
 
 class ExcelProcessing:
