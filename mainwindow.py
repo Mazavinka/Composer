@@ -6,6 +6,7 @@ from mergeimages import ImageProcessing
 from config import config as config
 from wwexcel import ExcelProcessing
 from settings.exceptions import add_exception
+from settings.addnewpalette import add_palette
 import os
 
 class MainWindow:
@@ -33,11 +34,11 @@ class MainWindow:
         setting_menu.add_separator()
         setting_menu.add_command(label="Задать шаблон именования компоновок", state="disabled")
         setting_menu.add_separator()
-        setting_menu.add_command(label="Добавить палитру", state="disabled")
+        setting_menu.add_command(label="Добавить палитру", command=add_palette.show)
         setting_menu.add_separator()
         setting_menu.add_command(label="Задать '%' дополнительного метража", state="disabled")
         setting_menu.add_separator()
-        setting_menu.add_command(label="Добавить исключение", command=add_exception.open_window, state="disabled")
+        setting_menu.add_command(label="Добавить исключение", state="disabled")
 
         main_menu.add_cascade(label="Настройки", menu=setting_menu)
 
