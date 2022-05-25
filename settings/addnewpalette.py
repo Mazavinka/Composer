@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox as mb
+from .paletteconfig import palette_config
 
 class AddPalette:
     def __init__(self):
@@ -67,19 +68,22 @@ class AddPalette:
 
     def add_five_colors_palette(self):
         if self.five_palette_number != "" and str(self.five_palette_number.get()).isdigit():
-            for i in self.all_five_colors_entry:
-                print(i.get())
-            print(self.five_palette_number.get())
+            new_colors = [i.get() for i in self.all_five_colors_entry]
+            palette_config.add_five_palette_colors(self.five_palette_number.get(), new_colors[0],
+                                                   new_colors[1], new_colors[2], new_colors[3], new_colors[4])
         else:
             mb.showerror("Внимание", "Введите номер палитры (Номер палитры должен быть числом)")
+        self.app.destroy()
 
     def add_ten_colors_palette(self):
         if self.ten_palette_number != "" and str(self.ten_palette_number.get()).isdigit():
-            for i in self.all_ten_colors_entry:
-                print(i.get())
-            print(self.ten_palette_number.get())
+            new_colors = [i.get() for i in self.all_ten_colors_entry]
+            palette_config.add_ten_palette_colors(self.ten_palette_number.get(), new_colors[0], new_colors[1],
+                                                  new_colors[2], new_colors[3], new_colors[4], new_colors[5],
+                                                  new_colors[6], new_colors[7], new_colors[8], new_colors[9])
         else:
             mb.showerror("Внимание", "Введите номер палитры (Номер палитры должен быть числом)")
+        self.app.destroy()
 
     def show(self):
         self.create_main_window()
@@ -88,7 +92,7 @@ class AddPalette:
         self.app.mainloop()
 
 
-#Проверить существует ли такой номер палитры уже готовый, если да, то не вносить сразу, а спросить перезаписать ли цвета на новые(тогда проверка на количество у)
+#Проверить существует ли такой номер палитры уже готовый, если да, то не вносить сразу, а спросить перезаписать ли цвета на новые(тогда проверка на количество цветов)
 
 add_palette = AddPalette()
 
