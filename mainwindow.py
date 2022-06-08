@@ -5,8 +5,10 @@ from parserxlsx import Parser
 from mergeimages import ImageProcessing
 from config import config as config
 from wwexcel import ExcelProcessing
-from settings.exceptions import add_exception
 from settings.addnewpalette import add_palette
+from changeadditionalfootage import change_additional_length
+from changecompositionname import change_composition_name
+from exceptions import add_exception
 import os
 
 class MainWindow:
@@ -25,20 +27,20 @@ class MainWindow:
         file_menu.add_separator()
         file_menu.add_command(label="Сохранить заявку", command=self.save_order)
         file_menu.add_separator()
-        file_menu.add_command(label="Выйти", state="disabled")
+        file_menu.add_command(label="Выйти", command=self.exit)
         main_menu.add_cascade(label="Файл", menu=file_menu)
 
         # Меню Настройки
         setting_menu = Menu(tearoff=0)
         setting_menu.add_command(label="Общие", state="disabled")
         setting_menu.add_separator()
-        setting_menu.add_command(label="Задать шаблон именования компоновок", state="disabled")
+        setting_menu.add_command(label="Задать шаблон именования компоновок", command=change_composition_name.composition_name_window)
         setting_menu.add_separator()
         setting_menu.add_command(label="Добавить палитру", command=add_palette.show)
         setting_menu.add_separator()
-        setting_menu.add_command(label="Задать '%' дополнительного метража", state="disabled")
+        setting_menu.add_command(label="Задать '%' дополнительного метража", command=change_additional_length.set_additional_length)
         setting_menu.add_separator()
-        setting_menu.add_command(label="Добавить исключение", state="disabled")
+        setting_menu.add_command(label="Добавить исключение", command=add_exception.add_exceptions)
 
         main_menu.add_cascade(label="Настройки", menu=setting_menu)
 
@@ -150,6 +152,9 @@ class MainWindow:
 
     def run(self):
         self.app.mainloop()
+
+    def exit(self):
+        self.app.destroy()
 
 
 if __name__ == "__main__":

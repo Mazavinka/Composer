@@ -1,4 +1,5 @@
 ﻿from config import config as config
+from settings.paletteconfig import palette_config
 from openpyxl import load_workbook
 
 
@@ -37,9 +38,9 @@ class ExcelProcessing:
 
     def get_template(self):
         colors = []
-        for i in config.palette_config:
+        for i in palette_config.palette_config:
             if self.palette_number == i:
-                for j in config.palette_config[i].values():
+                for j in palette_config.palette_config[i].values():
                     colors.append(j)
                     self.colors_name = colors
 
