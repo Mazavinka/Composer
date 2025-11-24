@@ -5,6 +5,7 @@ class ConfigComposer:
     def __init__(self):
         self.config = self.get_config()
         self.palette_config = self.get_palette_config()
+        self.exceptions_config = self.get_exceptions_width()
 
     def get_config(self):
         config = configparser.ConfigParser()
@@ -29,6 +30,11 @@ class ConfigComposer:
         self.config.set("SETTINGS", "number_of_compose", str(value))
         with open("config/settings.ini", "w") as configfile:
             self.config.write(configfile)
+
+    def set_new_exceptions(self, exception_width, value):
+        self.exceptions_config.set("EXCEPTIONS", exception_width, str(value))
+        with open("config/exceptions.ini", "w") as configfile:
+            self.exceptions_config.write(configfile)
 
     def get_composition_prefix(self):
         prefix = self.config["SETTINGS"]["prefix_compose_name"]
